@@ -1,5 +1,6 @@
 package cn.ua.bank.application.test.task.integration;
 
+import cn.ua.bank.application.test.task.repository.OperationHistoryRepository;
 import cn.ua.bank.application.test.task.repository.UserRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +28,9 @@ class MultithreadingUpdateBalanceTest extends BaseControllerTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private OperationHistoryRepository operationHistoryRepository;
+
     @BeforeEach
     void login() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders
@@ -44,6 +48,7 @@ class MultithreadingUpdateBalanceTest extends BaseControllerTest {
 
     @AfterEach
     void deleteUser() {
+        operationHistoryRepository.deleteAllByUserEmail(testUser.getEmail());
         userRepository.deleteById(testUser.getEmail());
     }
 

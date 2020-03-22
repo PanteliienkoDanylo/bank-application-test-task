@@ -40,8 +40,8 @@ class UserServiceTest {
 
     @AfterEach
     void deleteTestUser() {
-        userRepository.deleteById(testUser.getEmail());
         operationHistoryRepository.deleteAllByUserEmail(testUser.getEmail());
+        userRepository.deleteById(testUser.getEmail());
     }
 
     @Test

@@ -48,8 +48,8 @@ class UserControllerTest extends BaseControllerTest {
 
     @AfterEach
     void deleteUser() {
-        userRepository.deleteById(testUser.getEmail());
         operationHistoryRepository.deleteAllByUserEmail(testUser.getEmail());
+        userRepository.deleteById(testUser.getEmail());
     }
 
     @Test
