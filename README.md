@@ -1,4 +1,4 @@
-https://travis-ci.org/PanteliienkoDanylo/bank-application-test-task.svg?branch=master
+![travis-ci](https://travis-ci.org/PanteliienkoDanylo/bank-application-test-task.svg?branch=master)
 
 ## Bank Application Test Task
 
