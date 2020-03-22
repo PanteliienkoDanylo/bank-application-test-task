@@ -1,3 +1,5 @@
+https://travis-ci.org/PanteliienkoDanylo/bank-application-test-task.svg?branch=master
+
 ## Bank Application Test Task
 
 ### Simple banking application. Operations: 
