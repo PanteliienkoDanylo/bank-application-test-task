@@ -15,6 +15,11 @@
         <relativePath/>
     </parent>
 
+    <properties>
+        <swagger-version>2.9.2</swagger-version>
+        <swagger.ui-version>2.9.2</swagger.ui-version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,6 +57,18 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.ui-version}</version>
         </dependency>
 
     </dependencies>

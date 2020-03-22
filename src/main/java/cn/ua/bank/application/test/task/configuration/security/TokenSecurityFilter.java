@@ -1,4 +1,4 @@
-package cn.ua.bank.application.test.task.configuration;
+package cn.ua.bank.application.test.task.configuration.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

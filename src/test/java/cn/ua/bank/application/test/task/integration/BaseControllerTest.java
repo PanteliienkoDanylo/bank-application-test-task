@@ -9,7 +9,7 @@ import java.io.IOException;
 public class BaseControllerTest {
 
     protected static final String SUCCESS = "success";
-    protected static final String OK = "ok";
+    protected static final String INVALID_PASSWORD = "invalid password";
     protected static final String AUTH_HTTP_HEADER = "auth-token";
 
     protected static User testUser = new User("qwerty@gmail.com", "qwerty");

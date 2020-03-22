@@ -10,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -43,15 +42,6 @@ class AuthenticationControllerTest extends BaseControllerTest {
     }
 
     @Test
-    void testOk_shouldBeOkStatusAndStringOk() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                .get("/bank-app-test-task/api/test")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string(OK));
-    }
-
-    @Test
     void testLogin_shouldBeOkStatus() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/bank-app-test-task/api/login")
@@ -68,6 +58,7 @@ class AuthenticationControllerTest extends BaseControllerTest {
                 .content(mapToJson(new User(testUser.getEmail(), "incorrect password")))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isUnauthorized());
+                .andExpect(status().isUnauthorized())
+                .andExpect(content().string(INVALID_PASSWORD));
     }
 }

@@ -1,4 +1,4 @@
-package cn.ua.bank.application.test.task.configuration;
+package cn.ua.bank.application.test.task.configuration.security;
 
 import cn.ua.bank.application.test.task.model.User;
 import org.springframework.security.core.GrantedAuthority;

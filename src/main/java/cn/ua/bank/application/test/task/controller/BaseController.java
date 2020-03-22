@@ -1,9 +1,7 @@
 package cn.ua.bank.application.test.task.controller;
 
-import cn.ua.bank.application.test.task.configuration.AuthenticatedUser;
-import org.springframework.http.ResponseEntity;
+import cn.ua.bank.application.test.task.configuration.security.AuthenticatedUser;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,14 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 public abstract class BaseController {
 
     protected static final String SUCCESS = "success";
-    protected static final String OK = "ok";
+    protected static final String INVALID_PASSWORD = "invalid password";
 
     protected AuthenticatedUser getAuthenticatedUser() {
         return (AuthenticatedUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    }
-
-    @GetMapping("test")
-    public ResponseEntity<String> ok() {
-        return ResponseEntity.ok(OK);
     }
 }
