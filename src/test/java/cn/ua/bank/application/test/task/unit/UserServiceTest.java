@@ -6,6 +6,7 @@ import cn.ua.bank.application.test.task.exception.NotEnoughMoneyException;
 import cn.ua.bank.application.test.task.model.User;
 import cn.ua.bank.application.test.task.repository.OperationHistoryRepository;
 import cn.ua.bank.application.test.task.repository.UserRepository;
+import cn.ua.bank.application.test.task.service.AuthenticationService;
 import cn.ua.bank.application.test.task.service.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -26,13 +27,15 @@ class UserServiceTest {
     @Autowired
     private UserService userService;
     @Autowired
+    private AuthenticationService authenticationService;
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private OperationHistoryRepository operationHistoryRepository;
 
     @BeforeEach
     void addTestUserWithClearAccount() {
-        userRepository.save(testUser);
+        authenticationService.login(testUser);
     }
 
     @AfterEach

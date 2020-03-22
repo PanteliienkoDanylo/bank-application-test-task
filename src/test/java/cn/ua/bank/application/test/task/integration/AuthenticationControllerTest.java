@@ -1,12 +1,16 @@
 package cn.ua.bank.application.test.task.integration;
 
 import cn.ua.bank.application.test.task.model.User;
+import cn.ua.bank.application.test.task.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -18,6 +22,25 @@ class AuthenticationControllerTest extends BaseControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @BeforeEach
+    void login() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/bank-app-test-task/api/login")
+                .content(mapToJson(testUser))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+    }
+
+    @AfterEach
+    void deleteUser() {
+        userRepository.deleteById(testUser.getEmail());
+    }
 
     @Test
     void testOk_shouldBeOkStatusAndStringOk() throws Exception {

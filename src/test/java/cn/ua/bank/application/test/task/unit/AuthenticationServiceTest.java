@@ -38,12 +38,12 @@ class AuthenticationServiceTest {
 
     @BeforeEach
     void addTestUser() {
-        userRepository.save(testExistUser);
+        authenticationService.login(testExistUser);
     }
 
     @AfterEach
     void deleteTestUser() {
-        userRepository.delete(testExistUser);
+        userRepository.deleteById(testExistUser.getEmail());
     }
 
     @Test
@@ -51,7 +51,6 @@ class AuthenticationServiceTest {
         assertEquals(userRepository.count(), 1);
         User addedUser = authenticationService.login(testNewUser);
         assertEquals(addedUser.getEmail(), testNewUser.getEmail());
-        assertEquals(addedUser.getPassword(), testNewUser.getPassword());
         assertEquals(addedUser.getUserAccount().getBalance().compareTo(BigDecimal.ZERO), 0);
         assertEquals(addedUser.getUserAccount().getStatement(), AccountStatement.OPENED);
         assertEquals(userRepository.count(), 2);
@@ -63,7 +62,6 @@ class AuthenticationServiceTest {
         assertEquals(userRepository.count(), 1);
         User existedUser = authenticationService.login(testExistedUser);
         assertEquals(existedUser.getEmail(), testExistedUser.getEmail());
-        assertEquals(existedUser.getPassword(), testExistedUser.getPassword());
         assertEquals(existedUser.getUserAccount().getBalance().compareTo(BigDecimal.ZERO), 0);
         assertEquals(existedUser.getUserAccount().getStatement(), AccountStatement.OPENED);
         assertEquals(userRepository.count(), 1);
