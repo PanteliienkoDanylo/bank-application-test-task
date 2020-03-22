@@ -10,6 +10,7 @@
 
 #### IF you use not MySQL
 
+- `change dependecy in pom.xml`
 - `spring.datasource.url`
 - `spring.datasource.username`
 - `spring.datasource.password`
