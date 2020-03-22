@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/bank_application_test_task
-    username: root
-    password: dasska123
+    username: #username
+    password: #password
     driver-class-name: com.mysql.jdbc.Driver
 
   jpa:

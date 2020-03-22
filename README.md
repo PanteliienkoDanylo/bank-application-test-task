@@ -1,28 +1,27 @@
 ## Bank Application Test Task
 
-### Change the next properties:
+### Simple banking application. Operations: 
+ - authorization
+    - POST http://localhost:8080/bank-app-test-task/api/login
+    - will return token
+ - deposit or withdraw money
+    - POST http://localhost:8080/bank-app-test-task/api/deposit
+    - POST http://localhost:8080/bank-app-test-task/api/withdraw
+ - get balance
+    - GET http://localhost:8080/bank-app-test-task/api/balance
+ - get operation histories
+    - GET http://localhost:8080/bank-app-test-task/api/user/operation-histories
+ 
+#### Technologies: Spring Boot, Spring Data JPA, Spring Security
 
-#### If you use MySQL:
+#### Swagger-UI: http://localhost:8080/swagger-ui.html
 
-- `spring.datasource.url`
-- `spring.datasource.username`
-- `spring.datasource.password`
-
-#### IF you use not MySQL
-
-- `change dependecy in pom.xml`
-- `spring.datasource.url`
-- `spring.datasource.username`
-- `spring.datasource.password`
-- `spring.datasource.driver-class-name`
-- `spring.jpa.properties.hibernate.dialect`
-
-### run test
+#### run test
 `mvn test`
 
-### build jar
+#### build jar
 `mvn clean package`
 
-### run jar
+#### run jar
 `java -jar bank-application-test-task-1.0-SNAPSHOT.jar`
 
