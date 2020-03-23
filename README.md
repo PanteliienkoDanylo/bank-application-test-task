@@ -14,7 +14,7 @@
  - get operation histories
     - GET http://localhost:8080/bank-app-test-task/api/user/operation-histories
  
-#### Technologies: Spring Boot, Spring Data JPA, Spring Security
+#### Technologies: Spring Boot, Spring Data JPA, Spring Security, H2, Swagger UI, Travis-CI 
 
 #### Swagger-UI: http://localhost:8080/swagger-ui.html
 

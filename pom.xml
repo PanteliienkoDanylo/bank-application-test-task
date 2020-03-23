@@ -18,6 +18,7 @@
     <properties>
         <swagger-version>2.9.2</swagger-version>
         <swagger.ui-version>2.9.2</swagger.ui-version>
+        <h2-version>1.4.200</h2-version>
     </properties>
 
     <dependencies>
@@ -44,7 +45,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <version>${h2-version}</version>
         </dependency>
 
         <dependency>
